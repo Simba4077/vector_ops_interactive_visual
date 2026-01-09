@@ -16,6 +16,16 @@ function main(){
   //instantiate a vector
   const v1 = new Vector3([2.25,2.25,0]);
 
+  //retrieve the <canvas> element
+  var canvas = document.getElementById('example');
+  
+  //get the rendering context for 2DCG
+  var ctx = canvas.getContext('2d');
+
+  //make canvas black
+  ctx.fillStyle = "black"
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
   //call drawVector using v1
   drawVector(v1, "red")  
 }
@@ -30,8 +40,8 @@ function drawVector(v, color){
   var ctx = canvas.getContext('2d');
 
   //make canvas black
-  ctx.fillStyle = "black"
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  //ctx.fillStyle = "black"
+  //ctx.fillRect(0, 0, canvas.width, canvas.height);
   
   ctx.beginPath();
  
@@ -54,8 +64,11 @@ function drawVector(v, color){
 function handleDrawEvent(){
   //retrieve the <canvas> element
   var canvas = document.getElementById('example');
+
   //get the rendering context for 2DCG
   var ctx = canvas.getContext('2d');
+
+
   //called when user clicks on Draw button
   //clear canvas (so delete all vectors)
   ctx.rect(0,0,canvas.width, canvas.height);
@@ -65,10 +78,18 @@ function handleDrawEvent(){
   //get values from text boxes to create new v1
   var xvalue = document.getElementById('x').value
   var yvalue = document.getElementById('y').value
+
+  //get values from text boxes to create new v2
+  var x2value = document.getElementById('x2').value
+  var y2value = document.getElementById('y2').value
   
   //make v1 from values
   const v1 = new Vector3([xvalue, yvalue, 0])
 
+  //make v2 from values
+  const v2 = new Vector3([x2value, y2value, 0])
+
   //call drawVector
   drawVector(v1, "red")
+  drawVector(v2, "blue")
 }
