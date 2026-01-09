@@ -49,3 +49,26 @@ function drawVector(v, color){
   ctx.stroke();
 
 }
+
+
+function handleDrawEvent(){
+  //retrieve the <canvas> element
+  var canvas = document.getElementById('example');
+  //get the rendering context for 2DCG
+  var ctx = canvas.getContext('2d');
+  //called when user clicks on Draw button
+  //clear canvas (so delete all vectors)
+  ctx.rect(0,0,canvas.width, canvas.height);
+  ctx.fillStyle='black';
+  ctx.fill();
+  
+  //get values from text boxes to create new v1
+  var xvalue = document.getElementById('x').value
+  var yvalue = document.getElementById('y').value
+  
+  //make v1 from values
+  const v1 = new Vector3([xvalue, yvalue, 0])
+
+  //call drawVector
+  drawVector(v1, "red")
+}

@@ -7,30 +7,37 @@
  
   <body onload="main()">
 
-  <div style="display: flex; flex-direction: column; align-items: flex-start;">
-  <canvas id="example" width="400" height="400">
-  Please use a browser that supports "canvas"
-  </canvas>
+  <div style="display: flex; flex-direction: column; align-items: flex-start; gap: .2em">
+
+    <canvas id="example" width="400" height="400">
+    Please use a browser that supports "canvas"
+    </canvas>
   
 
-  <div style="display:inline-block;">
-    <span style="display: inline-block;">v1:</span>
-
     <div style="display:inline-block;">
-      <span style="display: inline-block;">x</span>
-      <input type="number" style="display:inline-block"/>
+      <span style="display: inline-block;">v1:</span>
+
+      <div style="display:inline-block;">
+        <span style="display: inline-block;">x</span>
+        <input id="x" type="number" style="display:inline-block; max-width:100px;"/>
+      </div>
+
+      <div style="display:inline-block;">
+        <span style="display: inline-block;">y</span>
+        <input id="y" type="number" style="display:inline-block;max-width:100px;"/>
+      </div> 
     </div>
 
-    <div style="display:inline-block;">
-      <span style="display: inline-block;">y</span>
-      <input type="number" style="display:inline-block"/>
-    </div>
 
-    <div style="display:inline-block;">
-      <input type="button" style="display:inline-block" value="Draw"/>
-    </div> 
+      <div style="display:inline-block;">
+        <input onclick="handleDrawEvent();this.style.backgroundColor='blue';this.style.border='2px solid blue';
+            setTimeout(()=>{this.style.backgroundColor='white';this.style.border='2px solid white';},80);" 
+            type="button" 
+            style="display:inline-block;background-color:white;border:2px solid white;
+                   border-radius:4px;filter:drop-shadow(1px 1px 2px rgba(0,0,0,0.4));" value="Draw"/>
+      </div> 
 
-  </div>
+
   </div>
    
   <script src="lib/cuon-matrix.js"></script>
