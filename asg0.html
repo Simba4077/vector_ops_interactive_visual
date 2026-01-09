@@ -43,16 +43,37 @@
     </div>
 
 
-      <div style="display:inline-block;">
-        <input onclick="handleDrawEvent();this.style.backgroundColor='blue';this.style.border='2px solid blue';
-            setTimeout(()=>{this.style.backgroundColor='white';this.style.border='2px solid white';},80);" 
-            type="button" 
-            style="display:inline-block;background-color:white;border:2px solid white;
-                   border-radius:4px;filter:drop-shadow(1px 1px 2px rgba(0,0,0,0.4));" value="Draw"/>
-      </div> 
+    <div style="display:inline-block;">
+     <input onclick="handleDrawEvent();this.style.backgroundColor='blue';this.style.border='2px solid blue';
+         setTimeout(()=>{this.style.backgroundColor='white';this.style.border='2px solid white';},80);" 
+         type="button" 
+         style="display:inline-block;background-color:white;border:2px solid white;
+                border-radius:4px;filter:drop-shadow(1px 1px 2px rgba(0,0,0,0.4));" value="Draw"/>
+    </div> 
 
 
+    <div style="display:inline-block;margin-top:10px;">
+      <span style="display: inline-block;">Operation: </span>
+      <select id="operations">
+        <option value="add">Add</option>
+        <option value="sub">Subtract</option>
+        <option value="mul">Multiply</option>
+       </select> 
+      <span style="display: inline-block;">Scalar: </span>
+      <input id="scalar" type="number" style="max-width:100px;"/>
+    </div>
+
+
+    <div style="display:inline-block;">
+      <input onclick="this.style.backgroundColor='blue';this.style.border='2px solid blue';
+          setTimeout(()=>{this.style.backgroundColor='white';this.style.border='2px solid white';},80);" 
+          type="button" 
+          style="display:inline-block;background-color:white;border:2px solid white;
+                 border-radius:4px;filter:drop-shadow(1px 1px 2px rgba(0,0,0,0.4));" value="Draw"/>
+     </div> 
   </div>
+
+  
    
   <script src="lib/cuon-matrix.js"></script>
   <script src="asg0.js"></script>
