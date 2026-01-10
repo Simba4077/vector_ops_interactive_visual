@@ -27,7 +27,7 @@ function main(){
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
   //call drawVector using v1
-  drawVector(v1, "red")  
+  drawVector(v1, "red")  ;
 }
 
 
@@ -49,8 +49,8 @@ function drawVector(v, color){
   ctx.moveTo(200,200);
 
   //scale v by 20
-  v.elements[0] = v.elements[0] * 20
-  v.elements[1] = v.elements[1] * 20
+  v.elements[0] = v.elements[0] * 20;
+  v.elements[1] = v.elements[1] * 20;
    
   //the end point of (x,y) is the length of vector v offset by origin
   ctx.lineTo(v.elements[0] + 200, 200-v.elements[1]);
@@ -76,22 +76,22 @@ function handleDrawEvent(){
   ctx.fill();
   
   //get values from text boxes to create new v1
-  var xvalue = document.getElementById('x').value
-  var yvalue = document.getElementById('y').value
+  var xvalue = document.getElementById('x').value;
+  var yvalue = document.getElementById('y').value;
 
   //get values from text boxes to create new v2
-  var x2value = document.getElementById('x2').value
-  var y2value = document.getElementById('y2').value
+  var x2value = document.getElementById('x2').value;
+  var y2value = document.getElementById('y2').value;
   
   //make v1 from values
-  const v1 = new Vector3([xvalue, yvalue, 0])
+  const v1 = new Vector3([xvalue, yvalue, 0]);
 
   //make v2 from values
-  const v2 = new Vector3([x2value, y2value, 0])
+  const v2 = new Vector3([x2value, y2value, 0]);
 
   //call drawVector
-  drawVector(v1, "red")
-  drawVector(v2, "blue")
+  drawVector(v1, "red");
+  drawVector(v2, "blue");
 }
 
 function handleDrawOperationEvent(){
@@ -114,18 +114,18 @@ function handleDrawOperationEvent(){
   var operation = document.getElementById('operations').value;
 
   //get values from text boxes to create new v1
-  var xvalue = document.getElementById('x').value
-  var yvalue = document.getElementById('y').value
+  var xvalue = document.getElementById('x').value;
+  var yvalue = document.getElementById('y').value;
 
   //get values from text boxes to create new v2
-  var x2value = document.getElementById('x2').value
-  var y2value = document.getElementById('y2').value
+  var x2value = document.getElementById('x2').value;
+  var y2value = document.getElementById('y2').value;
   
   //make v1 from values
-  const v1 = new Vector3([xvalue, yvalue, 0])
+  const v1 = new Vector3([xvalue, yvalue, 0]);
 
   //make v2 from values
-  const v2 = new Vector3([x2value, y2value, 0])
+  const v2 = new Vector3([x2value, y2value, 0]);
 
   if(operation==='add'){
     const v3 = v1.add(v2);
@@ -139,18 +139,32 @@ function handleDrawOperationEvent(){
 
   if(operation==='mul'){
     var scalar = document.getElementById('scalar').value;
-    const v3 = v1.mul(scalar)
-    const v4 = v2.mul(scalar)
+    const v3 = v1.mul(scalar);
+    const v4 = v2.mul(scalar);
     drawVector(v3, "green");
     drawVector(v4, "green");
   }
 
   if(operation==='div'){
     var scalar = document.getElementById('scalar').value;
-    const v3 = v1.div(scalar)
-    const v4 = v2.div(scalar)
+    const v3 = v1.div(scalar);
+    const v4 = v2.div(scalar);
     drawVector(v3, "green");
     drawVector(v4, "green");
   }
-  
+
+  if(operation==='mag'){
+    const v1mag = v1.magnitude();
+    const v2mag = v2.magnitude();
+    console.log("Magnitude v1: ",v1mag);
+    console.log("Magnitude v2: ",v2mag);
+  }
+
+  if(operation==='norm'){
+    const v1norm = v1.normalize();
+    const v2norm = v2.normalize();
+    drawVector(v1norm, "green");
+    drawVector(v2norm, "green");
+  }
+
 }
