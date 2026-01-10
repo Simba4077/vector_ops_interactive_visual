@@ -93,3 +93,64 @@ function handleDrawEvent(){
   drawVector(v1, "red")
   drawVector(v2, "blue")
 }
+
+function handleDrawOperationEvent(){
+  //called when second draw button is clicked
+  //retrieve the <canvas> element
+  var canvas = document.getElementById('example');
+
+  //get the rendering context for 2DCG
+  var ctx = canvas.getContext('2d');
+
+  //clear canvas (so delete all vectors)
+  ctx.rect(0,0,canvas.width, canvas.height);
+  ctx.fillStyle='black';
+  ctx.fill();
+  
+  //read values from text boxes to create new v1/v2 and draw
+  handleDrawEvent();
+
+  //read value of selector 
+  var operation = document.getElementById('operations').value;
+
+  //get values from text boxes to create new v1
+  var xvalue = document.getElementById('x').value
+  var yvalue = document.getElementById('y').value
+
+  //get values from text boxes to create new v2
+  var x2value = document.getElementById('x2').value
+  var y2value = document.getElementById('y2').value
+  
+  //make v1 from values
+  const v1 = new Vector3([xvalue, yvalue, 0])
+
+  //make v2 from values
+  const v2 = new Vector3([x2value, y2value, 0])
+
+  if(operation==='add'){
+    const v3 = v1.add(v2);
+    drawVector(v3, "green");
+  }
+
+  if(operation==='sub'){
+    const v3 = v1.sub(v2);
+    drawVector(v3, "green");
+  }
+
+  if(operation==='mul'){
+    var scalar = document.getElementById('scalar').value;
+    const v3 = v1.mul(scalar)
+    const v4 = v2.mul(scalar)
+    drawVector(v3, "green");
+    drawVector(v4, "green");
+  }
+
+  if(operation==='div'){
+    var scalar = document.getElementById('scalar').value;
+    const v3 = v1.div(scalar)
+    const v4 = v2.div(scalar)
+    drawVector(v3, "green");
+    drawVector(v4, "green");
+  }
+  
+}
