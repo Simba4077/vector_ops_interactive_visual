@@ -1,3 +1,9 @@
+/*
+Name: Mira Saini
+Email: misaini@ucsc.edu
+Notes to Grader: Check console log for necessary prints.
+*/
+
 function main(){
   //retrieve the <canvas> element
   //var canvas = document.getElementById('example');
