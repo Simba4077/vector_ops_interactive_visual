@@ -94,6 +94,17 @@ function handleDrawEvent(){
   drawVector(v2, "blue");
 }
 
+
+function angleBetween(v1, v2){
+  var dotproduct = Vector3.dot(v1, v2);
+  //dot(v1,v2) = ||v1|| * ||v2|| * cos(alpha)
+  //dot(v1,v2) / (||v1|| * ||v2||) = cos(alpha)
+  //cos^-1(dot(v1,v2) / (||v1|| * ||v2||)) = alpha
+  const angle = (Math.acos(dotproduct / (v1.magnitude() * v2.magnitude()))) * (180/Math.PI); 
+  console.log("Angle: ",angle);
+}
+
+
 function handleDrawOperationEvent(){
   //called when second draw button is clicked
   //retrieve the <canvas> element
@@ -167,4 +178,10 @@ function handleDrawOperationEvent(){
     drawVector(v2norm, "green");
   }
 
+  if(operation==='angle'){
+    angleBetween(v1,v2);
+  }
+
 }
+
+
