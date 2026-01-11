@@ -104,6 +104,13 @@ function angleBetween(v1, v2){
   console.log("Angle: ",angle);
 }
 
+function areaTriangle(v1,v2){
+  var crossproduct = Vector3.cross(v1,v2);
+  var para_area = crossproduct.magnitude();
+  const tri_area = para_area / 2;
+  console.log("Area of the triangle: ",tri_area);
+}
+
 
 function handleDrawOperationEvent(){
   //called when second draw button is clicked
@@ -180,6 +187,10 @@ function handleDrawOperationEvent(){
 
   if(operation==='angle'){
     angleBetween(v1,v2);
+  }
+
+  if(operation==='area'){
+    areaTriangle(v1,v2);
   }
 
 }
